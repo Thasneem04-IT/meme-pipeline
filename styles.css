@@ -1,43 +1,43 @@
 body {
-    font-family: 'Roboto', sans-serif; 
-    background-color: #282c34; 
-    color: #ffffff; 
+    font-family: 'Roboto', sans-serif;
+    background-color: #282c34;
+    color: #ffffff;
     text-align: center;
     margin: 0;
     padding: 0;
 }
 
 .container {
-    width: auto;
+    max-width: 900px;  /* Prevents zooming issue */
     margin: 40px auto;
     padding: 30px;
-    background-color: #3c404d; 
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25); 
-    border-radius: 15px; 
+    background-color: #3c404d;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
 }
 
 h1 {
-    color: white; 
+    color: white;
+    font-size: 28px;
 }
 
 .instructions {
-    font-size: 20px;
-    margin-bottom: 30px;
+    font-size: 18px;
+    margin-bottom: 20px;
     color: #adbac7;
 }
 
 #game-board {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Responsive */
+    gap: 15px;
     justify-content: center;
     padding: 20px;
 }
 
 .card {
-    width: 211.8px;
-    height: 166.2px;
+    width: 120px;
+    height: 160px;
     background-color: #565c6f;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -50,13 +50,13 @@ h1 {
 
 .card img {
     width: 100%;
-    height: auto;
+    height: 100%;
     visibility: hidden; /* Hide images by default */
     display: block;
 }
 
 .card.show img {
-    visibility: visible; /* Show image when card is flipped */
+    visibility: visible; /* Show image when flipped */
 }
 
 #start-game {
@@ -71,6 +71,21 @@ h1 {
 }
 
 #start-game:hover {
-    background-color: #43a047; /* Darker on hover */
-    transform: scale(1.05); /* Slightly enlarges on hover */
+    background-color: #43a047;
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        padding: 20px;
+    }
+    #game-board {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
+    .card {
+        width: 100px;
+        height: 140px;
+    }
 }
